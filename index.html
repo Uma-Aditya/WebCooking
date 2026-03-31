@@ -575,7 +575,7 @@
           'admin_overview', 'bulk_import', 'pending', 'sys_stats', 'audit_log',
           'ai_overview', 'ai_questions', 'ai_insights', 'ai_predict',
           'ss_login', 'ss_student', 'ss_faculty', 'ss_test', 'ss_analytics', 'ss_admin',
-          'uml_architecture', 'uml_db_schema', 'uml_use_case', 'uml_class', 'uml_seq_test', 'uml_seq_login',
+          'uml_architecture', 'uml_hl_flow', 'uml_component', 'uml_deployment', 'uml_db_schema', 'uml_ll_db', 'uml_use_case', 'uml_use_case_perfo', 'uml_class', 'uml_seq_register', 'uml_seq_login', 'uml_seq_test', 'uml_seq_marks', 'uml_seq_ai_test', 'uml_act_take_test', 'uml_act_marks', 'uml_act_ai_test', 'uml_state_test', 'uml_ll_flow',
           'results', 'features', 'conclusion'
         ];
 
@@ -670,11 +670,24 @@
             { 
                 name: '06.5_UML_Diagrams', type: 'folder', children: [
                     { id: 'uml_architecture', name: 'high_level_architecture.md', type: 'file' },
+                    { id: 'uml_hl_flow', name: 'high_level_flow_chart.md', type: 'file' },
+                    { id: 'uml_component', name: 'component_diagram.md', type: 'file' },
+                    { id: 'uml_deployment', name: 'deployment_diagram.md', type: 'file' },
                     { id: 'uml_db_schema', name: 'database_schema.md', type: 'file' },
+                    { id: 'uml_ll_db', name: 'low_level_database.md', type: 'file' },
                     { id: 'uml_use_case', name: 'use_case_diagram.md', type: 'file' },
+                    { id: 'uml_use_case_perfo', name: 'use_case_perfo.md', type: 'file' },
                     { id: 'uml_class', name: 'class_diagram.md', type: 'file' },
+                    { id: 'uml_seq_register', name: 'seq_student_registration.md', type: 'file' },
+                    { id: 'uml_seq_login', name: 'seq_login.md', type: 'file' },
                     { id: 'uml_seq_test', name: 'seq_take_test.md', type: 'file' },
-                    { id: 'uml_seq_login', name: 'seq_login.md', type: 'file' }
+                    { id: 'uml_seq_marks', name: 'seq_upload_marks.md', type: 'file' },
+                    { id: 'uml_seq_ai_test', name: 'seq_create_ai_test.md', type: 'file' },
+                    { id: 'uml_act_take_test', name: 'act_student_take_test.md', type: 'file' },
+                    { id: 'uml_act_marks', name: 'act_faculty_upload_marks.md', type: 'file' },
+                    { id: 'uml_act_ai_test', name: 'act_ai_test_creation.md', type: 'file' },
+                    { id: 'uml_state_test', name: 'state_test_creation.md', type: 'file' },
+                    { id: 'uml_ll_flow', name: 'low_level_flow_chart.md', type: 'file' }
                 ]
             },
             { 

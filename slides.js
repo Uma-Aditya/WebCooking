@@ -915,6 +915,136 @@ const SLIDES = {
     ]
   },
 
+  uml_hl_flow: {
+    title: "high_level_flow_chart.md", breadcrumb: "Performance-Analyzer > 06.5_UML_Diagrams > high_level_flow_chart.md",
+    image: "images/ER-Diag/high_level_flow_chart.png",
+    lines: [
+      { type: "heading",    text: "🌊 High Level Flow Chart" },
+      { type: "blank" },
+      { type: "plain",     text: "Visualizing the general process flow of the entire system." },
+    ]
+  },
+
+  uml_component: {
+    title: "component_diagram.md", breadcrumb: "Performance-Analyzer > 06.5_UML_Diagrams > component_diagram.md",
+    image: "images/ER-Diag/high_level_component_diagram.png",
+    lines: [
+      { type: "heading",    text: "🧩 Component Diagram" },
+      { type: "blank" },
+      { type: "plain",     text: "Shows how system components relate to each other." },
+    ]
+  },
+
+  uml_deployment: {
+    title: "deployment_diagram.md", breadcrumb: "Performance-Analyzer > 06.5_UML_Diagrams > deployment_diagram.md",
+    image: "images/ER-Diag/deployment_diagram.png",
+    lines: [
+      { type: "heading",    text: "🚀 Deployment Diagram" },
+      { type: "blank" },
+      { type: "plain",     text: "Hardware/Software execution environment for the platform." },
+    ]
+  },
+
+  uml_ll_db: {
+    title: "low_level_database.md", breadcrumb: "Performance-Analyzer > 06.5_UML_Diagrams > low_level_database.md",
+    image: "images/ER-Diag/low_level_database_schema.png",
+    lines: [
+      { type: "heading",    text: "🗄️ Low Level Database Schema" },
+      { type: "blank" },
+      { type: "plain",     text: "Granular view of tables, columns, constraints and types." },
+    ]
+  },
+
+  uml_use_case_perfo: {
+    title: "use_case_perfo.md", breadcrumb: "Performance-Analyzer > 06.5_UML_Diagrams > use_case_perfo.md",
+    image: "images/ER-Diag/USE_CASE_DIAGRAM_PERFO.png",
+    lines: [
+      { type: "heading",    text: "🔍 Detailed Use Case Diagram" },
+      { type: "blank" },
+      { type: "plain",     text: "Expanded view of specific user interactions in Performance Analyzer." },
+    ]
+  },
+
+  uml_seq_register: {
+    title: "seq_student_registration.md", breadcrumb: "Performance-Analyzer > 06.5_UML_Diagrams > seq_student_registration.md",
+    image: "images/ER-Diag/sequence_student_registration.png",
+    lines: [
+      { type: "heading",    text: "🔄 Sequence Diagram — Student Registration" },
+      { type: "blank" },
+      { type: "plain",     text: "Flow of a student signing up, waiting for approval, and admin action." },
+    ]
+  },
+
+  uml_seq_marks: {
+    title: "seq_upload_marks.md", breadcrumb: "Performance-Analyzer > 06.5_UML_Diagrams > seq_upload_marks.md",
+    image: "images/ER-Diag/sequence_upload_marks.png",
+    lines: [
+      { type: "heading",    text: "🔄 Sequence Diagram — Upload Marks" },
+      { type: "blank" },
+      { type: "plain",     text: "Faculty process of uploading Excel files, validation, and database updates." },
+    ]
+  },
+
+  uml_seq_ai_test: {
+    title: "seq_create_ai_test.md", breadcrumb: "Performance-Analyzer > 06.5_UML_Diagrams > seq_create_ai_test.md",
+    image: "images/ER-Diag/sequence_create_ai_test.png",
+    lines: [
+      { type: "heading",    text: "🔄 Sequence Diagram — Create AI Test" },
+      { type: "blank" },
+      { type: "plain",     text: "Interaction between Faculty, Backend, and Gemini 2.5 API." },
+    ]
+  },
+
+  uml_act_take_test: {
+    title: "act_student_take_test.md", breadcrumb: "Performance-Analyzer > 06.5_UML_Diagrams > act_student_take_test.md",
+    image: "images/ER-Diag/activity_diagram_for_student_take_test.png",
+    lines: [
+      { type: "heading",    text: "🏃 Activity Diagram — Take Test" },
+      { type: "blank" },
+      { type: "plain",     text: "Step-by-step activity mapping for resolving the test." },
+    ]
+  },
+
+  uml_act_marks: {
+    title: "act_faculty_upload_marks.md", breadcrumb: "Performance-Analyzer > 06.5_UML_Diagrams > act_faculty_upload_marks.md",
+    image: "images/ER-Diag/activity_diagram_for_faculty_upload_marks.png",
+    lines: [
+      { type: "heading",    text: "🏃 Activity Diagram — Upload Marks" },
+      { type: "blank" },
+      { type: "plain",     text: "Faculty's step-by-step path when handling large dataset uploads." },
+    ]
+  },
+
+  uml_act_ai_test: {
+    title: "act_ai_test_creation.md", breadcrumb: "Performance-Analyzer > 06.5_UML_Diagrams > act_ai_test_creation.md",
+    image: "images/ER-Diag/activity_diagram_for_ai_test_creation.png",
+    lines: [
+      { type: "heading",    text: "🏃 Activity Diagram — AI Test Creation" },
+      { type: "blank" },
+      { type: "plain",     text: "Process of defining parameters and receiving generated content." },
+    ]
+  },
+
+  uml_state_test: {
+    title: "state_test_creation.md", breadcrumb: "Performance-Analyzer > 06.5_UML_Diagrams > state_test_creation.md",
+    image: "images/ER-Diag/state_diagram_for_test_creation.png",
+    lines: [
+      { type: "heading",    text: "🚦 State Diagram — Test Creation" },
+      { type: "blank" },
+      { type: "plain",     text: "State transitions of a test entity from Draft to Published to Expired." },
+    ]
+  },
+
+  uml_ll_flow: {
+    title: "low_level_flow_chart.md", breadcrumb: "Performance-Analyzer > 06.5_UML_Diagrams > low_level_flow_chart.md",
+    image: "images/ER-Diag/low_level_flow_chart.png",
+    lines: [
+      { type: "heading",    text: "🌊 Low Level Flow Chart" },
+      { type: "blank" },
+      { type: "plain",     text: "In-depth procedural logic of critical operations." },
+    ]
+  },
+
   // ── 42 RESULTS ───────────────────────────────────────────
   results: {
     title: "performance_metrics.md", breadcrumb: "Performance-Analyzer > 07_Results > performance_metrics.md",
