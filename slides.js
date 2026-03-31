@@ -861,7 +861,14 @@ const SLIDES = {
     lines: [
       { type: "heading",    text: "🏗️ High Level System Architecture" },
       { type: "blank" },
-      { type: "plain",     text: "Visual representation of the overall architecture." },
+      { type: "subheading", text: "3-Tier Design Pattern" },
+      { parts: [{ text: "  Presentation Layer: ", type: "keyword" }, { text: "React 18 SPA", type: "highlight" }, { text: " (Vite-powered)", type: "plain" }] },
+      { parts: [{ text: "  Application Layer:  ", type: "keyword" }, { text: "FastAPI REST Server", type: "highlight" }, { text: " (Python)", type: "plain" }] },
+      { parts: [{ text: "  Data Layer:         ", type: "keyword" }, { text: "SQLite / SQLAlchemy ORM", type: "highlight" }, { text: " (19 models)", type: "plain" }] },
+      { type: "blank" },
+      { type: "subheading", text: "Cross-Cutting Services" },
+      { parts: [{ text: "  AI Engine:          ", type: "keyword" }, { text: "Google Gemini 2.5 API", type: "gold" }] },
+      { parts: [{ text: "  Auth:               ", type: "keyword" }, { text: "Role-Based Access Control (RBAC)", type: "highlight" }] },
     ]
   },
   
@@ -871,7 +878,13 @@ const SLIDES = {
     lines: [
       { type: "heading",    text: "💾 High Level Database Schema" },
       { type: "blank" },
-      { type: "plain",     text: "Entity-Relationship model overview." },
+      { type: "subheading", text: "Core Entity Clusters" },
+      { parts: [{ text: "  1. Users:    ", type: "keyword" }, { text: "Student, Teacher, PendingStudent", type: "highlight" }] },
+      { parts: [{ text: "  2. Testing:  ", type: "keyword" }, { text: "Test, Question, StudentTestResult", type: "highlight" }] },
+      { parts: [{ text: "  3. Placement:", type: "keyword" }, { text: "Job, ApplicationStageHistory", type: "highlight" }] },
+      { parts: [{ text: "  4. Analytics:", type: "keyword" }, { text: "StudentAnalyticsProfile, InsightCache", type: "highlight" }] },
+      { type: "blank" },
+      { parts: [{ text: "  Key Relations: ", type: "comment" }, { text: "1-to-Many", type: "number" }, { text: " (Teacher -> Test, Student -> Result)", type: "plain" }] },
     ]
   },
 
@@ -881,7 +894,13 @@ const SLIDES = {
     lines: [
       { type: "heading",    text: "👤 System Use Case Diagram" },
       { type: "blank" },
-      { type: "plain",     text: "Interactions between different actors (Student, Faculty, Admin, HOD, TPO) and system modules." },
+      { type: "subheading", text: "Primary Actors & Core Actions" },
+      { parts: [{ text: "  Student: ", type: "tag" }, { text: "Register, Take Tests, View Performance, Track Goals", type: "plain" }] },
+      { parts: [{ text: "  Faculty: ", type: "tag" }, { text: "Upload Marks, Create AI Tests, Analyze Class Data", type: "plain" }] },
+      { parts: [{ text: "  Admin:   ", type: "tag" }, { text: "Approve Students, Bulk Import, View Audit Logs", type: "plain" }] },
+      { parts: [{ text: "  HOD/TPO: ", type: "tag" }, { text: "Department Analytics, Placement Management", type: "plain" }] },
+      { type: "blank" },
+      { parts: [{ text: "  Common: ", type: "comment" }, { text: "Login/Logout, Profile Settings", type: "highlight" }] },
     ]
   },
 
@@ -891,7 +910,13 @@ const SLIDES = {
     lines: [
       { type: "heading",    text: "📦 System Class Diagram" },
       { type: "blank" },
-      { type: "plain",     text: "Object-oriented structure and relationships within the backend models." },
+      { type: "subheading", text: "Backend Model Hierarchy" },
+      { parts: [{ text: "  BaseModel", type: "keyword" }, { text: " (SQLAlchemy declarative_base)", type: "plain" }] },
+      { parts: [{ text: "    ├── UserProfile", type: "plain" }, { text: " (Shared fields: name, branch, year)", type: "comment" }] },
+      { parts: [{ text: "    ├── PerformanceEntity", type: "plain" }, { text: " (Analytics, Marks, Results)", type: "comment" }] },
+      { parts: [{ text: "    └── PlacementEntity", type: "plain" }, { text: " (Jobs, Stages)", type: "comment" }] },
+      { type: "blank" },
+      { parts: [{ text: "  Inheritance & Association: ", type: "subheading" }, { text: "Tight coupling between Students and results", type: "plain" }] },
     ]
   },
 
@@ -901,7 +926,12 @@ const SLIDES = {
     lines: [
       { type: "heading",    text: "🔄 Sequence Diagram — Take Test" },
       { type: "blank" },
-      { type: "plain",     text: "Timeline of events for a student discovering, taking, and submitting a test." },
+      { type: "subheading", text: "Interaction Timeline" },
+      { parts: [{ text: "  1. Student UI ", type: "tag" }, { text: "requests active test list", type: "plain" }] },
+      { parts: [{ text: "  2. Backend    ", type: "tag" }, { text: "filters by year/branch + past attempts", type: "plain" }] },
+      { parts: [{ text: "  3. Student UI ", type: "tag" }, { text: "submits answers JSON object", type: "plain" }] },
+      { parts: [{ text: "  4. Backend    ", type: "tag" }, { text: "computes score against stored keys", type: "plain" }] },
+      { parts: [{ text: "  5. Database   ", type: "tag" }, { text: "records result & updates overall average", type: "success" }] },
     ]
   },
 
@@ -911,7 +941,12 @@ const SLIDES = {
     lines: [
       { type: "heading",    text: "🔐 Sequence Diagram — Login Workflow" },
       { type: "blank" },
-      { type: "plain",     text: "Authentication process, password hashing, and token/session verification." },
+      { type: "subheading", text: "Secure Authentication Path" },
+      { parts: [{ text: "  1. UI: ", type: "plain" }, { text: "SHA-256 hash password", type: "highlight" }, { text: " client-side", type: "plain" }] },
+      { parts: [{ text: "  2. API:", type: "plain" }, { text: " POST /api/auth/{role}/login", type: "keyword" }] },
+      { parts: [{ text: "  3. DB: ", type: "plain" }, { text: " Verify actor exists + password match", type: "plain" }] },
+      { parts: [{ text: "  4. API:", type: "plain" }, { text: " Return user details & role", type: "plain" }] },
+      { parts: [{ text: "  5. UI: ", type: "plain" }, { text: " Store in localStorage & redirect", type: "highlight" }] },
     ]
   },
 
@@ -921,7 +956,11 @@ const SLIDES = {
     lines: [
       { type: "heading",    text: "🌊 High Level Flow Chart" },
       { type: "blank" },
-      { type: "plain",     text: "Visualizing the general process flow of the entire system." },
+      { type: "subheading", text: "Global System Logic" },
+      { parts: [{ text: "  Entry Point", type: "keyword" }, { text: " → Login / Registration Routing", type: "plain" }] },
+      { parts: [{ text: "  Role Check ", type: "keyword" }, { text: " → (Student UI | Faculty UI | Admin UI)", type: "highlight" }] },
+      { parts: [{ text: "  Data Loop  ", type: "keyword" }, { text: " → Upload → Analyze → AI Insight → Display", type: "gold" }] },
+      { parts: [{ text: "  Placement  ", type: "keyword" }, { text: " → Post → Eligibility → Apply → Pipeline", type: "success" }] },
     ]
   },
 
@@ -931,7 +970,11 @@ const SLIDES = {
     lines: [
       { type: "heading",    text: "🧩 Component Diagram" },
       { type: "blank" },
-      { type: "plain",     text: "Shows how system components relate to each other." },
+      { type: "subheading", text: "Modular Decomposition" },
+      { parts: [{ text: "  UI Components:  ", type: "keyword" }, { text: "StudentHub, FacultyPortal, AdminPanel", type: "highlight" }] },
+      { parts: [{ text: "  Logic Services: ", type: "keyword" }, { text: "AuthSvc, TestingSvc, AnalyticsSvc", type: "highlight" }] },
+      { parts: [{ text: "  External Svc:   ", type: "keyword" }, { text: "Google Gemini GenAI SDK", type: "gold" }] },
+      { parts: [{ text: "  Persistence:    ", type: "keyword" }, { text: "SQLite Database + File Store", type: "highlight" }] },
     ]
   },
 
@@ -941,7 +984,12 @@ const SLIDES = {
     lines: [
       { type: "heading",    text: "🚀 Deployment Diagram" },
       { type: "blank" },
-      { type: "plain",     text: "Hardware/Software execution environment for the platform." },
+      { type: "subheading", text: "Target Environment" },
+      { parts: [{ text: "  Client Node:  ", type: "keyword" }, { text: "Modern Web Browser", type: "plain" }] },
+      { parts: [{ text: "  App Server:   ", type: "keyword" }, { text: "Uvicorn (FastAPI) on Port 5000", type: "highlight" }] },
+      { parts: [{ text: "  Processors:   ", type: "keyword" }, { text: "Python 3.10+, Node 18+", type: "highlight" }] },
+      { parts: [{ text: "  Dependencies: ", type: "keyword" }, { text: "vEnv / node_modules", type: "comment" }] },
+      { parts: [{ text: "  Cloud Connectivity: ", type: "keyword" }, { text: "HTTPS to Google API", type: "gold" }] },
     ]
   },
 
@@ -951,7 +999,11 @@ const SLIDES = {
     lines: [
       { type: "heading",    text: "🗄️ Low Level Database Schema" },
       { type: "blank" },
-      { type: "plain",     text: "Granular view of tables, columns, constraints and types." },
+      { type: "subheading", text: "Field-Level Attributes" },
+      { parts: [{ text: "  Students Table:   ", type: "keyword" }, { text: "id(PK), roll_number(Unique), password(SHA256)", type: "plain" }] },
+      { parts: [{ text: "  Tests Table:      ", type: "keyword" }, { text: "id(PK), teacher_id(FK), subject, total_questions", type: "plain" }] },
+      { parts: [{ text: "  Results Table:    ", type: "keyword" }, { text: "score(Float), timestamp(DateTime)", type: "number" }] },
+      { parts: [{ text: "  Analytics Table:  ", type: "keyword" }, { text: "weak_subjects(JSON), risk_level(String)", type: "error" }] },
     ]
   },
 
@@ -961,7 +1013,11 @@ const SLIDES = {
     lines: [
       { type: "heading",    text: "🔍 Detailed Use Case Diagram" },
       { type: "blank" },
-      { type: "plain",     text: "Expanded view of specific user interactions in Performance Analyzer." },
+      { type: "subheading", text: "Granular Module Interactions" },
+      { parts: [{ text: "  Testing Module:   ", type: "keyword" }, { text: "Assign Variations, Randomize, Auto-Grade", type: "plain" }] },
+      { parts: [{ text: "  Insight Module:   ", type: "keyword" }, { text: "Hash Data, Cache Gemini Output, Regenerate", type: "gold" }] },
+      { parts: [{ text: "  Placement Module: ", type: "keyword" }, { text: "Filter Eligibility, Timeline Tracker", type: "success" }] },
+      { parts: [{ text: "  Management:       ", type: "keyword" }, { text: "Section Config, TPO Access Toggle", type: "highlight" }] },
     ]
   },
 
@@ -971,7 +1027,12 @@ const SLIDES = {
     lines: [
       { type: "heading",    text: "🔄 Sequence Diagram — Student Registration" },
       { type: "blank" },
-      { type: "plain",     text: "Flow of a student signing up, waiting for approval, and admin action." },
+      { type: "subheading", text: "The Approval Pipeline" },
+      { parts: [{ text: "  1. Student: ", type: "plain" }, { text: "Submits registration form", type: "plain" }] },
+      { parts: [{ text: "  2. Backend: ", type: "plain" }, { text: "Persists to PendingStudent table", type: "highlight" }] },
+      { parts: [{ text: "  3. Admin:   ", type: "plain" }, { text: "Fetches /api/admin/pending-students", type: "plain" }] },
+      { parts: [{ text: "  4. Admin:   ", type: "plain" }, { text: "Executes BulkApprove action", type: "success" }] },
+      { parts: [{ text: "  5. Backend: ", type: "plain" }, { text: "Moves data to Student table (+cleanup)", type: "plain" }] },
     ]
   },
 
@@ -981,7 +1042,12 @@ const SLIDES = {
     lines: [
       { type: "heading",    text: "🔄 Sequence Diagram — Upload Marks" },
       { type: "blank" },
-      { type: "plain",     text: "Faculty process of uploading Excel files, validation, and database updates." },
+      { type: "subheading", text: "Data Ingestion Workflow" },
+      { parts: [{ text: "  1. Faculty: ", type: "plain" }, { text: "Uploads Excel (.xlsx) via POST", type: "keyword" }] },
+      { parts: [{ text: "  2. Pandas:  ", type: "plain" }, { text: "Parses & Normalizes scores to 100%", type: "highlight" }] },
+      { parts: [{ text: "  3. Backend: ", type: "plain" }, { text: "Calculates combined assessment AVG", type: "plain" }] },
+      { parts: [{ text: "  4. DB:      ", type: "plain" }, { text: "Bulk inserts StudentPerformance records", type: "plain" }] },
+      { parts: [{ text: "  5. UI:      ", type: "plain" }, { text: "Triggers analytics profile refresh", type: "highlight" }] },
     ]
   },
 
@@ -991,7 +1057,12 @@ const SLIDES = {
     lines: [
       { type: "heading",    text: "🔄 Sequence Diagram — Create AI Test" },
       { type: "blank" },
-      { type: "plain",     text: "Interaction between Faculty, Backend, and Gemini 2.5 API." },
+      { type: "subheading", text: "Gemini Integration Protocol" },
+      { parts: [{ text: "  1. Backend: ", type: "plain" }, { text: "Prepares system instruction prompt", type: "comment" }] },
+      { parts: [{ text: "  2. Gemini:  ", type: "plain" }, { text: "Generates structured JSON MCQs", type: "gold" }] },
+      { parts: [{ text: "  3. Backend: ", type: "plain" }, { text: "Validates schema integrity & options", type: "plain" }] },
+      { parts: [{ text: "  4. DB:      ", type: "plain" }, { text: "Saves Test + linked Questions", type: "plain" }] },
+      { parts: [{ text: "  5. UI:      ", type: "plain" }, { text: "Confirmation: \"AI Test Created Successfully\"", type: "success" }] },
     ]
   },
 
@@ -1001,7 +1072,12 @@ const SLIDES = {
     lines: [
       { type: "heading",    text: "🏃 Activity Diagram — Take Test" },
       { type: "blank" },
-      { type: "plain",     text: "Step-by-step activity mapping for resolving the test." },
+      { type: "subheading", text: "Dynamic Testing Logic" },
+      { parts: [{ text: "  START → Load Test UI", type: "plain" }] },
+      { parts: [{ text: "    ├── Fetch Assigned Variations", type: "highlight" }] },
+      { parts: [{ text: "    ├── Answer All Questions", type: "plain" }] },
+      { parts: [{ text: "    └── [Submit] → Auto-Grade Score", type: "keyword" }] },
+      { parts: [{ text: "  END → Display Results (If Released)", type: "success" }] },
     ]
   },
 
@@ -1011,7 +1087,12 @@ const SLIDES = {
     lines: [
       { type: "heading",    text: "🏃 Activity Diagram — Upload Marks" },
       { type: "blank" },
-      { type: "plain",     text: "Faculty's step-by-step path when handling large dataset uploads." },
+      { type: "subheading", text: "Excel to DB Process" },
+      { parts: [{ text: "  Upload File → Detect Columns", type: "keyword" }] },
+      { parts: [{ text: "    ├── Match Roll Numbers in DB", type: "plain" }] },
+      { parts: [{ text: "    ├── Compute Normalization Ratio", type: "highlight" }] },
+      { parts: [{ text: "    └── Preview Data in UI Table", type: "plain" }] },
+      { parts: [{ text: "  [Confirm] → Update DB → Refresh Graph", type: "success" }] },
     ]
   },
 
@@ -1021,7 +1102,12 @@ const SLIDES = {
     lines: [
       { type: "heading",    text: "🏃 Activity Diagram — AI Test Creation" },
       { type: "blank" },
-      { type: "plain",     text: "Process of defining parameters and receiving generated content." },
+      { type: "subheading", text: "Generative Logic Flow" },
+      { parts: [{ text: "  Enter Subject → Enter Q Count", type: "keyword" }] },
+      { parts: [{ text: "    ├── [Click Generate]", type: "plain" }] },
+      { parts: [{ text: "    ├── Invoke Gemini LLM", type: "gold" }] },
+      { parts: [{ text: "    └── Parse JSON Questions", type: "plain" }] },
+      { parts: [{ text: "  Review Questions → Publish Test", type: "success" }] },
     ]
   },
 
@@ -1031,7 +1117,12 @@ const SLIDES = {
     lines: [
       { type: "heading",    text: "🚦 State Diagram — Test Creation" },
       { type: "blank" },
-      { type: "plain",     text: "State transitions of a test entity from Draft to Published to Expired." },
+      { type: "subheading", text: "Entity Lifespan States" },
+      { parts: [{ text: "  [IDLE]      ", type: "plain" }, { text: "→ Initial state", type: "comment" }] },
+      { parts: [{ text: "  [DRAFT]     ", type: "highlight" }, { text: "→ Created but not released", type: "plain" }] },
+      { parts: [{ text: "  [ACTIVE]    ", type: "success" }, { text: "→ Released & taking attempts", type: "plain" }] },
+      { parts: [{ text: "  [EXPIRED]   ", type: "error" }, { text: "→ Current time > test end time", type: "plain" }] },
+      { parts: [{ text: "  [COMPLETED] ", type: "keyword" }, { text: "→ All students finished", type: "plain" }] },
     ]
   },
 
@@ -1041,7 +1132,13 @@ const SLIDES = {
     lines: [
       { type: "heading",    text: "🌊 Low Level Flow Chart" },
       { type: "blank" },
-      { type: "plain",     text: "In-depth procedural logic of critical operations." },
+      { type: "subheading", text: "API Exception Handling" },
+      { parts: [{ text: "  Try Request", type: "keyword" }, { text: " → Validate Role", type: "plain" }] },
+      { parts: [{ text: "    ├── FAIL → 401 Unauthorized", type: "error" }] },
+      { parts: [{ text: "    └── SUCCESS → Resource Op", type: "plain" }] },
+      { parts: [{ text: "  Op Results:", type: "comment" }] },
+      { parts: [{ text: "    ├── Conflict → 400 Bad Req", type: "error" }] },
+      { parts: [{ text: "    └── Saved → 200/201 OK", type: "success" }] },
     ]
   },
 
